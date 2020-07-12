@@ -1,0 +1,19 @@
+.App {
+    background: #4c2a4c;
+    margin: 20px auto;
+    width: 90%;
+    color: #fff;
+    max-width: 700px;
+}
+
+.title {
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 20px;
+    background: #6d3d6d;
+}
+
+.error-message {
+    font-weight: 2.5rem;
+    text-align: center;
+}

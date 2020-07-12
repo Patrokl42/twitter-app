@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+    container_name: docker-frontend
+    command: serve -s build -l 3000
+    restart: unless-stopped
+    networks:
+      - twitter-network
+
+  api:
+    build: ./api
+    container_name: docker-api
+    command: npm run start
+    restart: unless-stopped
+    environment:
+      - PORT=3001
+    networks:
+      - twitter-network
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: docker-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf.prod:/etc/nginx/conf.d/nginx.conf
+    depends_on:
+      - frontend
+      - api
+    networks:
+      - twitter-network
+
+networks:
+  twitter-network:
+    driver: bridge

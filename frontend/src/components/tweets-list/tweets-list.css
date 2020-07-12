@@ -1,0 +1,8 @@
+.tweets-list {
+    list-style-type: none;
+    padding-left: 0;
+    max-width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
