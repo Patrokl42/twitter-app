@@ -11,7 +11,7 @@ const TweetsListItem = ({ tweet }) => {
                 <h2 className='tweets-list-item__author'>{tweet.user.name}</h2>
                 <p>{tweet.text}</p>
                 <div>
-                    <small className='tweets-list-item__date'>{tweet.created_at}</small>
+                    <small className='tweets-list-item__date'>{tweet.created_at.replace(/\B\+\S+/, '')}</small>
                 </div>
             </div>
         </li>
