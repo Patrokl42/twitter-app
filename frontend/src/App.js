@@ -11,7 +11,6 @@ import { searchTweets } from "./actions/tweets";
 
 function App({error, searchTweets}) {
     let history = useHistory();
-    console.log(error);
 
     useEffect(() => {
         getSearchFromUrl(history.location.search.substr(3));
